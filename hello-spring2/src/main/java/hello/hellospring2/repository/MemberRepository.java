@@ -11,4 +11,5 @@ public interface MemberRepository {
     Optional<Member> findByName(String name);   // 이름 조회
     List<Member> findAll();  // 등록된 모든 회원 조회
 
+
 }
