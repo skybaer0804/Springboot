@@ -3,10 +3,13 @@ package hello.hellospring2.service;
 import hello.hellospring2.domian.Member;
 import hello.hellospring2.repository.MemberRepository;
 import hello.hellospring2.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -14,6 +17,8 @@ public class MemberService {
     private final MemberRepository memberRepository;
     // 생성자
     // memoryRepository를 외부에서 받아주는 걸로 바꾼다.
+
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

@@ -1,9 +1,11 @@
 package hello.hellospring2.repository;
 
 import hello.hellospring2.domian.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();  // 동시성 문제가 있으나 예제로 이렇게 처리함
