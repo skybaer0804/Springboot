@@ -3,10 +3,13 @@ package hello.hellospring2.service;
 import hello.hellospring2.domian.Member;
 import hello.hellospring2.repository.MemberRepository;
 import hello.hellospring2.repository.MemoryMemberRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+// jpa 항상 트랜잭션 넣어준다. 사실 join등 데이터를 저장하고 삭제하는것들만 해줘도 되는데 일단 class위에 넣음.
+@Transactional
 public class MemberService {
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
