@@ -23,24 +23,33 @@ public class SpringConfig {
 //        this.dataSource = dataSource;
 //    }
 
-    private EntityManager em;  // jpa EntityManger 주입
+//    private EntityManager em;  // jpa EntityManger 주입
+//
+//    @Autowired
+//    public SpringConfig(EntityManager em){  // 생성자.
+//        this.em = em;
+//    }
+//
+    private final MemberRepository memberRepository;
 
-    @Autowired
-    public SpringConfig(EntityManager em){  // 생성자.
-        this.em = em;
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
+    // 이렇게 해 놓으면  끝.
+    // 아까 만든 스프링데이터JPA 인터페이스에 JpaRepository를 extends 해놓으면
+    // 자동으로 스프링 빈에 등록이 되어있어서 그저 가져다 쓰면된다.
 
 
     @Bean
     public MemberService memberService(){
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
-    @Bean
-    public MemberRepository memberRepository(){
+//    @Bean
+//    public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
 //        return new jdbcMemberRepository();
 //        return new JdbcTemplateMemberRepository(dataSource);
-        return new JpaMemberRepository(em);
-    }
+//        return new JpaMemberRepository(em);
+//    }
 }
